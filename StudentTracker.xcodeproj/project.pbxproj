@@ -13,6 +13,14 @@
 		848642C91B50622200451A3C /* StudentTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 848642C71B50622200451A3C /* StudentTracker.xcdatamodeld */; };
 		848642CB1B50622200451A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848642CA1B50622200451A3C /* Assets.xcassets */; };
 		848642CE1B50622200451A3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848642CC1B50622200451A3C /* LaunchScreen.storyboard */; };
+		848642D61B5070F100451A3C /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D51B5070F100451A3C /* NotesTableViewCell.swift */; };
+		848642D81B507ADB00451A3C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D71B507ADB00451A3C /* MainTableViewController.swift */; };
+		848642DF1B5080ED00451A3C /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */; };
+		848642E01B5080ED00451A3C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DA1B5080ED00451A3C /* Student.swift */; };
+		848642E11B5080ED00451A3C /* MileStone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */; };
+		848642E21B5080ED00451A3C /* MileStone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DC1B5080ED00451A3C /* MileStone.swift */; };
+		848642E31B5080ED00451A3C /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */; };
+		848642E41B5080ED00451A3C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DE1B5080ED00451A3C /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		848642CA1B50622200451A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		848642CD1B50622200451A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		848642CF1B50622200451A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848642D51B5070F100451A3C /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		848642D71B507ADB00451A3C /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		848642DA1B5080ED00451A3C /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
+		848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MileStone+CoreDataProperties.swift"; path = "../MileStone+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		848642DC1B5080ED00451A3C /* MileStone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MileStone.swift; path = ../MileStone.swift; sourceTree = "<group>"; };
+		848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		848642DE1B5080ED00451A3C /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,31 @@
 		848642BF1B50622200451A3C /* StudentTracker */ = {
 			isa = PBXGroup;
 			children = (
+				848642E51B5083C200451A3C /* CoreData */,
 				848642C01B50622200451A3C /* AppDelegate.swift */,
 				848642C21B50622200451A3C /* ViewController.swift */,
 				848642C41B50622200451A3C /* Main.storyboard */,
+				848642D71B507ADB00451A3C /* MainTableViewController.swift */,
+				848642D51B5070F100451A3C /* NotesTableViewCell.swift */,
 				848642CA1B50622200451A3C /* Assets.xcassets */,
 				848642CC1B50622200451A3C /* LaunchScreen.storyboard */,
 				848642CF1B50622200451A3C /* Info.plist */,
 				848642C71B50622200451A3C /* StudentTracker.xcdatamodeld */,
 			);
 			path = StudentTracker;
+			sourceTree = "<group>";
+		};
+		848642E51B5083C200451A3C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */,
+				848642DA1B5080ED00451A3C /* Student.swift */,
+				848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */,
+				848642DC1B5080ED00451A3C /* MileStone.swift */,
+				848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */,
+				848642DE1B5080ED00451A3C /* Note.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +169,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848642E11B5080ED00451A3C /* MileStone+CoreDataProperties.swift in Sources */,
+				848642DF1B5080ED00451A3C /* Student+CoreDataProperties.swift in Sources */,
+				848642E21B5080ED00451A3C /* MileStone.swift in Sources */,
 				848642C31B50622200451A3C /* ViewController.swift in Sources */,
 				848642C91B50622200451A3C /* StudentTracker.xcdatamodeld in Sources */,
 				848642C11B50622200451A3C /* AppDelegate.swift in Sources */,
+				848642D81B507ADB00451A3C /* MainTableViewController.swift in Sources */,
+				848642E41B5080ED00451A3C /* Note.swift in Sources */,
+				848642E01B5080ED00451A3C /* Student.swift in Sources */,
+				848642D61B5070F100451A3C /* NotesTableViewCell.swift in Sources */,
+				848642E31B5080ED00451A3C /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +327,7 @@
 				848642D41B50622200451A3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

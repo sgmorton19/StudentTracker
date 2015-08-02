@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.20" systemVersion="14E46" minimumToolsVersion="Automatic">
     <entity name="MileStone" representedClassName=".MileStone" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="orderIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="studentsCompleted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesComplete" inverseEntity="Student" syncable="YES"/>
-        <relationship name="studentsIncompleted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesIncomplete" inverseEntity="Student" syncable="YES"/>
+        <attribute name="category" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="orderIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="studentsCompleted" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesComplete" inverseEntity="Student" syncable="YES"/>
+        <relationship name="studentsIncompleted" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesIncomplete" inverseEntity="Student" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName=".Note" syncable="YES">
-        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="notes" inverseEntity="Student" syncable="YES"/>
+        <attribute name="note" attributeType="String" syncable="YES"/>
+        <relationship name="student" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="notes" inverseEntity="Student" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName=".Student" syncable="YES">
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="mileStonesComplete" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsCompleted" inverseEntity="MileStone" syncable="YES"/>
-        <relationship name="mileStonesIncomplete" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsIncompleted" inverseEntity="MileStone" syncable="YES"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="student" inverseEntity="Note" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <relationship name="mileStonesComplete" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsCompleted" inverseEntity="MileStone" syncable="YES"/>
+        <relationship name="mileStonesIncomplete" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsIncompleted" inverseEntity="MileStone" syncable="YES"/>
+        <relationship name="notes" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="student" inverseEntity="Note" syncable="YES"/>
     </entity>
     <elements>
         <element name="MileStone" positionX="-81" positionY="-306" width="128" height="118"/>

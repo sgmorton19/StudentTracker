@@ -7,10 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Main Table View Controller-->
         <scene sceneID="tfl-fO-nJA">
             <objects>
-                <tableViewController id="13I-8w-Zr7" sceneMemberID="viewController">
+                <tableViewController id="13I-8w-Zr7" customClass="MainTableViewController" customModule="StudentTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8pX-WA-iBe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="CqK-ig-YlU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="26s-Cb-Cdk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="26s-Cb-Cdk">
+                            <connections>
+                                <action selector="addNewStudent:" destination="13I-8w-Zr7" id="0uv-OQ-Ngj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6x-pg-qdt" userLabel="First Responder" sceneMemberID="firstResponder"/>

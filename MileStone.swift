@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(MileStone)
+
 class MileStone: NSManagedObject {
 
     class func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, category: Int, orderIndex: Int) -> MileStone {

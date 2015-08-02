@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Student)
+
 class Student: NSManagedObject {
     
     class func createInManagedObjectContext(moc: NSManagedObjectContext, fName: String, lName: String) -> Student {

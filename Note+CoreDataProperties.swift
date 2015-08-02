@@ -14,7 +14,7 @@ import CoreData
 
 extension Note {
 
-    @NSManaged var note: String?
-    @NSManaged var student: Student?
+    @NSManaged var note: String
+    @NSManaged var student: Student
 
 }

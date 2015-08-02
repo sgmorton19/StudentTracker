@@ -14,10 +14,10 @@ import CoreData
 
 extension MileStone {
 
-    @NSManaged var category: NSNumber?
-    @NSManaged var name: String?
-    @NSManaged var orderIndex: NSNumber?
-    @NSManaged var studentsCompleted: NSSet?
-    @NSManaged var studentsIncompleted: NSSet?
+    @NSManaged var category: NSNumber
+    @NSManaged var name: String
+    @NSManaged var orderIndex: NSNumber
+    @NSManaged var studentsCompleted: NSSet
+    @NSManaged var studentsIncompleted: NSSet
 
 }

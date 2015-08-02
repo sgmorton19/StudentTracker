@@ -7,15 +7,68 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
 
 class MainTableViewController: UITableViewController {
+    
+    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var studentNames:[Student]!
 
+    @IBAction func addNewStudent(sender: AnyObject) {
+        let titlePrompt = UIAlertController(title: "Student Name",
+            message: nil,
+            preferredStyle: .Alert)
+        
+        var titleTextField: UITextField?
+        titlePrompt.addTextFieldWithConfigurationHandler {
+            (textField) -> Void in
+            titleTextField = textField
+            textField.placeholder = "John Smith"
+        }
+        
+        titlePrompt.addAction(UIAlertAction(title: "Ok",
+            style: .Default,
+            handler: { (action) -> Void in
+                if let textField = titleTextField {
+                    self.addStudent(textField.text!)
+                }
+        }))
+        
+        self.presentViewController(titlePrompt,
+            animated: true,
+            completion: nil)
+    }
+    
+    func addStudent(name: String){
+        let fullNameArr = split(name.characters){$0 == " "}.map{String($0)}
+        studentNames.append(Student.createInManagedObjectContext(moc, fName: fullNameArr[0], lName: fullNameArr[1]))
+        tableView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let fetchRequest = NSFetchRequest(entityName: "Student")
+        
+        // Create a sort descriptor object that sorts on the "title"
+        // property of the Core Data object
+        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
+        
+        // Set the list of sort descriptors in the fetch request,
+        // so it includes the sort descriptor
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        
+        do {
+            let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [Student]
+            studentNames = fetchResults
+        } catch {
+            print("Uh Oh")
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,23 +85,21 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return studentNames.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath)
+        cell.textLabel!.text = studentNames[indexPath.row].firstName + " " + studentNames[indexPath.row].lastName
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -14,10 +14,10 @@ import CoreData
 
 extension Student {
 
-    @NSManaged var firstName: String?
-    @NSManaged var lastName: String?
-    @NSManaged var notes: NSSet?
-    @NSManaged var mileStonesComplete: NSSet?
-    @NSManaged var mileStonesIncomplete: NSSet?
+    @NSManaged var firstName: String
+    @NSManaged var lastName: String
+    @NSManaged var notes: NSSet
+    @NSManaged var mileStonesComplete: NSSet
+    @NSManaged var mileStonesIncomplete: NSSet
 
 }

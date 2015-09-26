@@ -13,10 +13,21 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let mileStones =    [("Test 1", 0, 0),
+                        ("Test 2", 0, 1),
+                        ("Test 3", 1, 2),
+                        ("Test 4", 2, 3),
+                        ("Test 5", 2, 4)]
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-      
-        // Override point for customization after application launch.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let _ = defaults.objectForKey("sortByFirstName")
+        {}
+        else{
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey: "sortByFirstName")
+        }
         return true
     }
 

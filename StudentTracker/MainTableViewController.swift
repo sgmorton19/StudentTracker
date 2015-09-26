@@ -32,6 +32,7 @@ class MainTableViewController: UITableViewController {
             handler: { (action) -> Void in
                 if let textField = titleTextField {
                     self.addStudent(textField.text!)
+                    self.save()
                 }
         }))
         
@@ -42,13 +43,37 @@ class MainTableViewController: UITableViewController {
     
     func addStudent(name: String){
         let fullNameArr = split(name.characters){$0 == " "}.map{String($0)}
-        studentNames.append(Student.createInManagedObjectContext(moc, fName: fullNameArr[0], lName: fullNameArr[1]))
+        var firstname = name
+        var lastname = name
+        
+        if fullNameArr.count > 1 {
+            lastname = fullNameArr[1] + ", " + fullNameArr[0]
+            firstname = fullNameArr[0] + " " + fullNameArr[1]
+        }
+        
+        studentNames.append(Student.createInManagedObjectContext(moc, fName: firstname, lName: lastname))
+        sortReload()
+    }
+    
+    func save() {
+        do {
+            try self.moc.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
+    
+    
+    
+    func sortReload(){
+        studentNames.sortInPlace( { $0.firstName < $1.firstName})
         tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
-        tableView.reloadData()
+        sortReload()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,7 +121,13 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath)
-        cell.textLabel!.text = studentNames[indexPath.row].firstName + " " + studentNames[indexPath.row].lastName
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("sortByFirstName") {
+            cell.textLabel!.text = studentNames[indexPath.row].firstName
+            
+        }else{
+            cell.textLabel!.text = studentNames[indexPath.row].lastName
+        }
         return cell
     }
     

@@ -10,8 +10,18 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var notesTable: UITableView!
+    @IBOutlet weak var mileStoneTable: UITableView!
+    
+    var student:Student!
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 0
+        if tableView == notesTable {
+            return student.notes.count
+        }else{
+            //todo
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{

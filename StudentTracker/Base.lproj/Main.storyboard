@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="b9X-h8-ZYy"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toStudent" id="B1d-hl-UrM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -73,9 +73,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="18" y="8" width="204" height="27"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -180,6 +177,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="wUR-OU-cSm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6yG-ye-E7B"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mileStoneTable" destination="NGp-f9-iNd" id="zGA-M6-W9F"/>
+                        <outlet property="notesTable" destination="kbH-CT-sDL" id="g6h-G6-v86"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

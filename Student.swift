@@ -18,9 +18,28 @@ class Student: NSManagedObject {
         newItem.lastName = lName
         newItem.notes = NSSet()
         newItem.mileStonesComplete = NSSet()
-        newItem.mileStonesIncomplete = NSSet()
+        
+        let fetchRequest = NSFetchRequest(entityName: "MileStone")
+        do {
+            let fetchResults = try moc.executeFetchRequest(fetchRequest) as! [MileStone]
+            newItem.mileStonesIncomplete = Set(fetchResults)
+        }catch
+        {
+            newItem.mileStonesIncomplete = NSSet()
+        }
         
         return newItem
+    }
+    
+    func swapComplete(value: MileStone){
+        if self.mileStonesComplete.containsObject(value) {
+            self.mutableSetValueForKey("mileStonesComplete").removeObject(value)
+            self.mutableSetValueForKey("mileStonesIncomplete").addObject(value)
+        }
+        else{
+            self.mutableSetValueForKey("mileStonesIncomplete").removeObject(value)
+            self.mutableSetValueForKey("mileStonesComplete").addObject(value)
+        }
     }
 
 }

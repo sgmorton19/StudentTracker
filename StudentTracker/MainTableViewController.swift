@@ -131,6 +131,10 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -167,14 +171,23 @@ class MainTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toStudent" {
+            let view = segue.destinationViewController as! ViewController
+            
+            let index = tableView.indexPathForSelectedRow!.row
+            
+            view.navigationItem.title = studentNames[index].firstName
+            
+        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

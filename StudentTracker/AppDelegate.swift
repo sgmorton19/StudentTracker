@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mileStoneNum:[MileStone]!
     
     let mileStones =    [("Test 1", 0, 0),
                         ("Test 2", 0, 1),
@@ -21,13 +22,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         ("Test 5", 2, 4)]
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let defaults = NSUserDefaults.standardUserDefaults()
         if let _ = defaults.objectForKey("sortByFirstName")
-        {}
-        else{
+        {
+        }else{
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(true, forKey: "sortByFirstName")
         }
+        
+        let fetchRequest = NSFetchRequest(entityName: "MileStone")
+        
+        do {
+            let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [MileStone]
+            mileStoneNum = fetchResults
+            if mileStoneNum.count < 1 {
+                for (name, color, order) in mileStones {
+                    MileStone.createInManagedObjectContext(moc, name: name, category: color, orderIndex: order)
+                }
+            }
+        } catch {
+            print("Uh Oh")
+        }
+        
+        
+        
         return true
     }
 

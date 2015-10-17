@@ -182,7 +182,64 @@ class MainTableViewController: UITableViewController {
             let index = tableView.indexPathForSelectedRow!.row
             
             view.navigationItem.title = studentNames[index].firstName
+            let theStudent = studentNames[index]
+            view.student = theStudent
             
+            let completed = Array(theStudent.mileStonesComplete) as! [MileStone]
+            view.completed = completed.sort( { $0.orderIndex.compare($1.orderIndex) == NSComparisonResult.OrderedAscending } )
+            
+            let incomplete = Array(theStudent.mileStonesIncomplete) as! [MileStone]
+            view.incomplete = incomplete.sort( { $0.orderIndex.compare($1.orderIndex) == NSComparisonResult.OrderedAscending } )
+            
+            let notes = Array(theStudent.notes) as! [Note]
+            view.notes = notes.sort( { $0.orderIndex.compare($1.orderIndex) == NSComparisonResult.OrderedDescending } )
+            
+            
+            /*
+            //
+            //Alternate way to do it without using NSComparisonResult
+            //
+            
+            let x:[Note] = notes.sort( { $0.orderIndex! < $1.orderIndex! } )
+            view.notes = x
+            
+            //
+            //Old, Bad way to do it
+            //
+            
+            let fetchRequest = NSFetchRequest(entityName: "MileStone")
+            let sortDescriptor = NSSortDescriptor(key: "orderIndex", ascending: true)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            do {
+                let predicate = NSPredicate(format: "ANY studentsCompleted.firstName == %@", theStudent.firstName)
+                fetchRequest.predicate = predicate
+                let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [MileStone]
+                view.completed = fetchResults
+            } catch {
+                print("Uh Oh")
+            }
+            
+            do {
+                let predicate = NSPredicate(format: "ANY studentsIncompleted.firstName == %@", theStudent.firstName)
+                fetchRequest.predicate = predicate
+                let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [MileStone]
+                view.incomplete = fetchResults
+            } catch {
+                print("Uh Oh")
+            }
+            
+            let fetchRequest2 = NSFetchRequest(entityName: "Note")
+            do {
+                let predicate = NSPredicate(format: "ANY student.firstName == %@", theStudent.firstName)
+                fetchRequest2.predicate = predicate
+                let fetchResults = try moc.executeFetchRequest(fetchRequest2) as? [Note]
+                view.notes = fetchResults
+            } catch {
+                print("Uh Oh")
+            }
+
+            */
+
         }
         
         // Get the new view controller using segue.destinationViewController.

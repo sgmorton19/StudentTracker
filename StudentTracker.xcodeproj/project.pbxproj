@@ -19,8 +19,8 @@
 		848642E01B5080ED00451A3C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DA1B5080ED00451A3C /* Student.swift */; };
 		848642E11B5080ED00451A3C /* MileStone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */; };
 		848642E21B5080ED00451A3C /* MileStone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DC1B5080ED00451A3C /* MileStone.swift */; };
-		848642E31B5080ED00451A3C /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */; };
-		848642E41B5080ED00451A3C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DE1B5080ED00451A3C /* Note.swift */; };
+		84D02D0D1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */; };
+		84D02D0E1BCD5C7C00E5D98F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D0C1BCD5C7C00E5D98F /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		848642DA1B5080ED00451A3C /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
 		848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MileStone+CoreDataProperties.swift"; path = "../MileStone+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		848642DC1B5080ED00451A3C /* MileStone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MileStone.swift; path = ../MileStone.swift; sourceTree = "<group>"; };
-		848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		848642DE1B5080ED00451A3C /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
+		84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84D02D0C1BCD5C7C00E5D98F /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +89,12 @@
 		848642E51B5083C200451A3C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */,
+				84D02D0C1BCD5C7C00E5D98F /* Note.swift */,
 				848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */,
 				848642DA1B5080ED00451A3C /* Student.swift */,
 				848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */,
 				848642DC1B5080ED00451A3C /* MileStone.swift */,
-				848642DD1B5080ED00451A3C /* Note+CoreDataProperties.swift */,
-				848642DE1B5080ED00451A3C /* Note.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -176,10 +176,10 @@
 				848642C91B50622200451A3C /* StudentTracker.xcdatamodeld in Sources */,
 				848642C11B50622200451A3C /* AppDelegate.swift in Sources */,
 				848642D81B507ADB00451A3C /* MainTableViewController.swift in Sources */,
-				848642E41B5080ED00451A3C /* Note.swift in Sources */,
+				84D02D0E1BCD5C7C00E5D98F /* Note.swift in Sources */,
 				848642E01B5080ED00451A3C /* Student.swift in Sources */,
 				848642D61B5070F100451A3C /* NotesTableViewCell.swift in Sources */,
-				848642E31B5080ED00451A3C /* Note+CoreDataProperties.swift in Sources */,
+				84D02D0D1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

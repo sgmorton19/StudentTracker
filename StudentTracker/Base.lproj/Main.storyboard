@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" id="09S-Ol-bVE" customClass="NotesTableViewCell" customModule="StudentTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NotesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" id="09S-Ol-bVE" customClass="NotesTableViewCell" customModule="StudentTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09S-Ol-bVE" id="76w-b1-sjl">
@@ -128,6 +128,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="4g7-X7-pjn"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="F6k-YS-nof"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -178,7 +179,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wUR-OU-cSm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6yG-ye-E7B"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6yG-ye-E7B">
+                            <connections>
+                                <action selector="addNoteButton:" destination="BYZ-38-t0r" id="ikt-UY-4c6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mileStoneTable" destination="NGp-f9-iNd" id="zGA-M6-W9F"/>
@@ -187,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354.5" y="225"/>
+            <point key="canvasLocation" x="1354" y="225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HLa-Aa-LX3">

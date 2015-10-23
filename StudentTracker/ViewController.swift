@@ -37,8 +37,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             style: .Default,
             handler: { (action) -> Void in
                 if let textField = titleTextField {
-                    self.notes.append(Note.createInManagedObjectContext(self.moc, note: textField.text!, student: self.student))
+                    self.notes.insert(Note.createInManagedObjectContext(self.moc, note: textField.text!, student: self.student), atIndex: 0)
                     self.save()
+                    self.notesTable.reloadData()
                 }
         }))
         
@@ -100,8 +101,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let retval = tableView.dequeueReusableCellWithIdentifier("mileStoneCell")!
             if indexPath.section == 0 {
                 retval.textLabel?.text = incomplete[indexPath.row].name
+                retval.backgroundColor = Colors.choose[incomplete[indexPath.row].category.integerValue]
             }else{
                 retval.textLabel?.text = completed[indexPath.row].name
+                retval.backgroundColor = Colors.choose[completed[indexPath.row].category.integerValue]
             }
             return retval
         }
@@ -136,6 +139,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         self.save()
         
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if tableView == notesTable{
+            return true
+        }
+        return false
+    }
+
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            moc.deleteObject(notes[indexPath.row])
+            notes.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            save()
+        }   //else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            //}
     }
 
     override func viewDidLoad() {

@@ -14,12 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mileStoneNum:[MileStone]!
-    
-    let mileStones =    [("Test 1", 0, 0),
-                        ("Test 2", 0, 1),
-                        ("Test 3", 1, 2),
-                        ("Test 4", 2, 3),
-                        ("Test 5", 2, 4)]
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -37,8 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [MileStone]
             mileStoneNum = fetchResults
             if mileStoneNum.count < 1 {
-                for (name, color, order) in mileStones {
-                    MileStone.createInManagedObjectContext(moc, name: name, category: color, orderIndex: order)
+                let type = StudentType.createInManagedObjectContext(moc, name: "Private Pilot")
+                
+                let mileStones =    [("Test 1", 0, 0, type),
+                                    ("Test 2", 0, 1, type),
+                                    ("Test 3", 1, 2, type),
+                                    ("Test 4", 2, 3, type),
+                                    ("Test 5", 2, 4, type)]
+                
+                for (name, color, order, sType) in mileStones {
+                    MileStone.createInManagedObjectContext(moc, type: sType, name: name, category: color, orderIndex: order)
                 }
             }
         } catch {

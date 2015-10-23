@@ -2,7 +2,7 @@
 //  MileStone.swift
 //  StudentTracker
 //
-//  Created by Admin on 7/10/15.
+//  Created by Admin on 10/23/15.
 //  Copyright © 2015 Stephen. All rights reserved.
 //
 
@@ -12,8 +12,9 @@ import CoreData
 
 class MileStone: NSManagedObject {
 
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, category: Int, orderIndex: Int) -> MileStone {
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, type: StudentType, name: String, category: Int, orderIndex: Int) -> MileStone {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("MileStone", inManagedObjectContext: moc) as! MileStone
+        newItem.studentType = type
         newItem.name = name
         newItem.category = category
         newItem.orderIndex = orderIndex
@@ -22,5 +23,4 @@ class MileStone: NSManagedObject {
         
         return newItem
     }
-
 }

@@ -6,6 +6,7 @@
         <attribute name="orderIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="studentsCompleted" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesComplete" inverseEntity="Student" syncable="YES"/>
         <relationship name="studentsIncompleted" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="mileStonesIncomplete" inverseEntity="Student" syncable="YES"/>
+        <relationship name="studentType" maxCount="1" deletionRule="Nullify" destinationEntity="StudentType" inverseName="mileStones" inverseEntity="StudentType" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName=".Note" syncable="YES">
         <attribute name="note" attributeType="String" syncable="YES"/>
@@ -18,10 +19,17 @@
         <relationship name="mileStonesComplete" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsCompleted" inverseEntity="MileStone" syncable="YES"/>
         <relationship name="mileStonesIncomplete" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentsIncompleted" inverseEntity="MileStone" syncable="YES"/>
         <relationship name="notes" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="student" inverseEntity="Note" syncable="YES"/>
+        <relationship name="studentType" maxCount="1" deletionRule="Nullify" destinationEntity="StudentType" inverseName="students" inverseEntity="StudentType" syncable="YES"/>
+    </entity>
+    <entity name="StudentType" representedClassName=".StudentType" syncable="YES">
+        <attribute name="typeName" attributeType="String" syncable="YES"/>
+        <relationship name="mileStones" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentType" inverseEntity="MileStone" syncable="YES"/>
+        <relationship name="students" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="studentType" inverseEntity="Student" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MileStone" positionX="-81" positionY="-306" width="128" height="118"/>
+        <element name="MileStone" positionX="-81" positionY="-306" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="-27" width="128" height="88"/>
-        <element name="Student" positionX="-56" positionY="-103" width="128" height="118"/>
+        <element name="Student" positionX="-108" positionY="-46" width="128" height="133"/>
+        <element name="StudentType" positionX="178" positionY="-243" width="128" height="88"/>
     </elements>
 </model>

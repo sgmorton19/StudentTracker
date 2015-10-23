@@ -2,7 +2,7 @@
 //  MileStone+CoreDataProperties.swift
 //  StudentTracker
 //
-//  Created by Admin on 7/10/15.
+//  Created by Admin on 10/23/15.
 //  Copyright © 2015 Stephen. All rights reserved.
 //
 //  Delete this file and regenerate it using "Create NSManagedObject Subclass…"
@@ -19,5 +19,6 @@ extension MileStone {
     @NSManaged var orderIndex: NSNumber
     @NSManaged var studentsCompleted: NSSet
     @NSManaged var studentsIncompleted: NSSet
+    @NSManaged var studentType: StudentType
 
 }

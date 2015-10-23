@@ -1,8 +1,8 @@
 //
-//  Note+CoreDataProperties.swift
+//  StudentType+CoreDataProperties.swift
 //  StudentTracker
 //
-//  Created by Admin on 10/13/15.
+//  Created by Admin on 10/23/15.
 //  Copyright © 2015 Stephen. All rights reserved.
 //
 //  Delete this file and regenerate it using "Create NSManagedObject Subclass…"
@@ -12,10 +12,10 @@
 import Foundation
 import CoreData
 
-extension Note {
+extension StudentType {
 
-    @NSManaged var note: String
-    @NSManaged var orderIndex: NSNumber
-    @NSManaged var student: Student
+    @NSManaged var typeName: String
+    @NSManaged var mileStones: NSSet
+    @NSManaged var students: NSSet
 
 }

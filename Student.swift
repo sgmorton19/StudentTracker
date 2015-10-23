@@ -2,7 +2,7 @@
 //  Student.swift
 //  StudentTracker
 //
-//  Created by Admin on 7/10/15.
+//  Created by Admin on 10/23/15.
 //  Copyright © 2015 Stephen. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import CoreData
 
 
 class Student: NSManagedObject {
-    
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, fName: String, lName: String) -> Student {
+
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, fName: String, lName: String, type: StudentType) -> Student {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: moc) as! Student
         newItem.firstName = fName
         newItem.lastName = lName
@@ -27,6 +27,7 @@ class Student: NSManagedObject {
         {
             newItem.mileStonesIncomplete = NSSet()
         }
+        newItem.studentType = type
         
         return newItem
     }
@@ -41,5 +42,4 @@ class Student: NSManagedObject {
             self.mutableSetValueForKey("mileStonesComplete").addObject(value)
         }
     }
-
 }

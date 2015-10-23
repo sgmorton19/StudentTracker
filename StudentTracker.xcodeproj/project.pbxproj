@@ -15,12 +15,19 @@
 		848642CE1B50622200451A3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848642CC1B50622200451A3C /* LaunchScreen.storyboard */; };
 		848642D61B5070F100451A3C /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D51B5070F100451A3C /* NotesTableViewCell.swift */; };
 		848642D81B507ADB00451A3C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D71B507ADB00451A3C /* MainTableViewController.swift */; };
-		848642DF1B5080ED00451A3C /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */; };
-		848642E01B5080ED00451A3C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DA1B5080ED00451A3C /* Student.swift */; };
-		848642E11B5080ED00451A3C /* MileStone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */; };
-		848642E21B5080ED00451A3C /* MileStone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848642DC1B5080ED00451A3C /* MileStone.swift */; };
 		84D02D0D1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */; };
 		84D02D0E1BCD5C7C00E5D98F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D0C1BCD5C7C00E5D98F /* Note.swift */; };
+		84D02D101BD2EAC700E5D98F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D0F1BD2EAC700E5D98F /* Colors.swift */; };
+		84D02D341BDA8E2300E5D98F /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D321BDA8E2300E5D98F /* ENSideMenu.swift */; };
+		84D02D351BDA8E2300E5D98F /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D331BDA8E2300E5D98F /* ENSideMenuNavigationController.swift */; };
+		84D02D371BDA8F4300E5D98F /* SideMenuNavigation Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */; };
+		84D02D391BDA91F600E5D98F /* SideMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */; };
+		84D02D3C1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D3A1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift */; };
+		84D02D3D1BDAAEF700E5D98F /* StudentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D3B1BDAAEF700E5D98F /* StudentType.swift */; };
+		84D02D421BDAB16600E5D98F /* MileStone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D401BDAB16500E5D98F /* MileStone+CoreDataProperties.swift */; };
+		84D02D431BDAB16600E5D98F /* MileStone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D411BDAB16500E5D98F /* MileStone.swift */; };
+		84D02D461BDAB1D300E5D98F /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D441BDAB1D300E5D98F /* Student+CoreDataProperties.swift */; };
+		84D02D471BDAB1D300E5D98F /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D451BDAB1D300E5D98F /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +41,19 @@
 		848642CF1B50622200451A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848642D51B5070F100451A3C /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		848642D71B507ADB00451A3C /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		848642DA1B5080ED00451A3C /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
-		848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MileStone+CoreDataProperties.swift"; path = "../MileStone+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		848642DC1B5080ED00451A3C /* MileStone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MileStone.swift; path = ../MileStone.swift; sourceTree = "<group>"; };
 		84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		84D02D0C1BCD5C7C00E5D98F /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
+		84D02D0F1BD2EAC700E5D98F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		84D02D321BDA8E2300E5D98F /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		84D02D331BDA8E2300E5D98F /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SideMenuNavigation Controller.swift"; sourceTree = "<group>"; };
+		84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableVC.swift; sourceTree = "<group>"; usesTabs = 0; };
+		84D02D3A1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StudentType+CoreDataProperties.swift"; path = "../StudentType+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84D02D3B1BDAAEF700E5D98F /* StudentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudentType.swift; path = ../StudentType.swift; sourceTree = "<group>"; };
+		84D02D401BDAB16500E5D98F /* MileStone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MileStone+CoreDataProperties.swift"; path = "../MileStone+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84D02D411BDAB16500E5D98F /* MileStone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MileStone.swift; path = ../MileStone.swift; sourceTree = "<group>"; };
+		84D02D441BDAB1D300E5D98F /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84D02D451BDAB1D300E5D98F /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,8 @@
 			children = (
 				848642BF1B50622200451A3C /* StudentTracker */,
 				848642BE1B50622200451A3C /* Products */,
+				84D02D321BDA8E2300E5D98F /* ENSideMenu.swift */,
+				84D02D331BDA8E2300E5D98F /* ENSideMenuNavigationController.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,8 +92,11 @@
 				848642C01B50622200451A3C /* AppDelegate.swift */,
 				848642C21B50622200451A3C /* ViewController.swift */,
 				848642C41B50622200451A3C /* Main.storyboard */,
+				84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */,
+				84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */,
 				848642D71B507ADB00451A3C /* MainTableViewController.swift */,
 				848642D51B5070F100451A3C /* NotesTableViewCell.swift */,
+				84D02D0F1BD2EAC700E5D98F /* Colors.swift */,
 				848642CA1B50622200451A3C /* Assets.xcassets */,
 				848642CC1B50622200451A3C /* LaunchScreen.storyboard */,
 				848642CF1B50622200451A3C /* Info.plist */,
@@ -89,12 +108,14 @@
 		848642E51B5083C200451A3C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				84D02D441BDAB1D300E5D98F /* Student+CoreDataProperties.swift */,
+				84D02D451BDAB1D300E5D98F /* Student.swift */,
+				84D02D401BDAB16500E5D98F /* MileStone+CoreDataProperties.swift */,
+				84D02D411BDAB16500E5D98F /* MileStone.swift */,
+				84D02D3A1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift */,
+				84D02D3B1BDAAEF700E5D98F /* StudentType.swift */,
 				84D02D0B1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift */,
 				84D02D0C1BCD5C7C00E5D98F /* Note.swift */,
-				848642D91B5080ED00451A3C /* Student+CoreDataProperties.swift */,
-				848642DA1B5080ED00451A3C /* Student.swift */,
-				848642DB1B5080ED00451A3C /* MileStone+CoreDataProperties.swift */,
-				848642DC1B5080ED00451A3C /* MileStone.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -169,15 +190,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848642E11B5080ED00451A3C /* MileStone+CoreDataProperties.swift in Sources */,
-				848642DF1B5080ED00451A3C /* Student+CoreDataProperties.swift in Sources */,
-				848642E21B5080ED00451A3C /* MileStone.swift in Sources */,
+				84D02D3D1BDAAEF700E5D98F /* StudentType.swift in Sources */,
+				84D02D421BDAB16600E5D98F /* MileStone+CoreDataProperties.swift in Sources */,
+				84D02D431BDAB16600E5D98F /* MileStone.swift in Sources */,
+				84D02D101BD2EAC700E5D98F /* Colors.swift in Sources */,
+				84D02D341BDA8E2300E5D98F /* ENSideMenu.swift in Sources */,
 				848642C31B50622200451A3C /* ViewController.swift in Sources */,
+				84D02D3C1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift in Sources */,
+				84D02D461BDAB1D300E5D98F /* Student+CoreDataProperties.swift in Sources */,
+				84D02D371BDA8F4300E5D98F /* SideMenuNavigation Controller.swift in Sources */,
 				848642C91B50622200451A3C /* StudentTracker.xcdatamodeld in Sources */,
 				848642C11B50622200451A3C /* AppDelegate.swift in Sources */,
 				848642D81B507ADB00451A3C /* MainTableViewController.swift in Sources */,
 				84D02D0E1BCD5C7C00E5D98F /* Note.swift in Sources */,
-				848642E01B5080ED00451A3C /* Student.swift in Sources */,
+				84D02D471BDAB1D300E5D98F /* Student.swift in Sources */,
+				84D02D391BDA91F600E5D98F /* SideMenuTableVC.swift in Sources */,
+				84D02D351BDA8E2300E5D98F /* ENSideMenuNavigationController.swift in Sources */,
 				848642D61B5070F100451A3C /* NotesTableViewCell.swift in Sources */,
 				84D02D0D1BCD5C7C00E5D98F /* Note+CoreDataProperties.swift in Sources */,
 			);

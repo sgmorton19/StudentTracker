@@ -15,6 +15,10 @@ class MainTableViewController: UITableViewController {
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var studentNames:[Student]!
 
+    @IBAction func MenuTapped(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+    
     @IBAction func addNewStudent(sender: AnyObject) {
         let titlePrompt = UIAlertController(title: "Student Name",
             message: nil,
@@ -144,17 +148,18 @@ class MainTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            moc.deleteObject(studentNames[indexPath.row])
+            studentNames.removeAtIndex(indexPath.row)
+            save()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }   
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

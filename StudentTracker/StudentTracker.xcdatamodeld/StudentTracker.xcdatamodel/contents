@@ -23,8 +23,8 @@
     </entity>
     <entity name="StudentType" representedClassName=".StudentType" syncable="YES">
         <attribute name="typeName" attributeType="String" syncable="YES"/>
-        <relationship name="mileStones" toMany="YES" deletionRule="Nullify" destinationEntity="MileStone" inverseName="studentType" inverseEntity="MileStone" syncable="YES"/>
-        <relationship name="students" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="studentType" inverseEntity="Student" syncable="YES"/>
+        <relationship name="mileStones" toMany="YES" deletionRule="Cascade" destinationEntity="MileStone" inverseName="studentType" inverseEntity="MileStone" syncable="YES"/>
+        <relationship name="students" toMany="YES" deletionRule="Cascade" destinationEntity="Student" inverseName="studentType" inverseEntity="Student" syncable="YES"/>
     </entity>
     <elements>
         <element name="MileStone" positionX="-81" positionY="-306" width="128" height="133"/>

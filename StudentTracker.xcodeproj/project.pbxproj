@@ -29,6 +29,8 @@
 		84D02D461BDAB1D300E5D98F /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D441BDAB1D300E5D98F /* Student+CoreDataProperties.swift */; };
 		84D02D471BDAB1D300E5D98F /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D451BDAB1D300E5D98F /* Student.swift */; };
 		84D02D491BDABB2700E5D98F /* AddStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D481BDABB2700E5D98F /* AddStudentController.swift */; };
+		84D02D4B1BDB0CD500E5D98F /* EditNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */; };
+		84D02D4D1BDB165D00E5D98F /* StudentTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		84D02D441BDAB1D300E5D98F /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		84D02D451BDAB1D300E5D98F /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
 		84D02D481BDABB2700E5D98F /* AddStudentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentController.swift; sourceTree = "<group>"; };
+		84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteVC.swift; sourceTree = "<group>"; };
+		84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTypeTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				848642C01B50622200451A3C /* AppDelegate.swift */,
 				848642C21B50622200451A3C /* ViewController.swift */,
 				848642C41B50622200451A3C /* Main.storyboard */,
+				84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */,
+				84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */,
 				84D02D481BDABB2700E5D98F /* AddStudentController.swift */,
 				84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */,
 				84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */,
@@ -201,6 +207,8 @@
 				848642C31B50622200451A3C /* ViewController.swift in Sources */,
 				84D02D491BDABB2700E5D98F /* AddStudentController.swift in Sources */,
 				84D02D3C1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift in Sources */,
+				84D02D4D1BDB165D00E5D98F /* StudentTypeTVC.swift in Sources */,
+				84D02D4B1BDB0CD500E5D98F /* EditNoteVC.swift in Sources */,
 				84D02D461BDAB1D300E5D98F /* Student+CoreDataProperties.swift in Sources */,
 				84D02D371BDA8F4300E5D98F /* SideMenuNavigation Controller.swift in Sources */,
 				848642C91B50622200451A3C /* StudentTracker.xcdatamodeld in Sources */,

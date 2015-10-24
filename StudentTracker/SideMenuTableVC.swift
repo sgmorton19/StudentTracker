@@ -19,4 +19,18 @@ class SideMenuTableVC: UITableViewController {
         
         tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var destinationVC:UITableViewController!
+        
+        if indexPath.row == 1 {
+            destinationVC = storyboard.instantiateViewControllerWithIdentifier("StudentTypeTVC") as! StudentTypeTVC
+        } else {
+            destinationVC = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
+        }
+        
+        sideMenuController()?.setContentViewController(destinationVC)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }

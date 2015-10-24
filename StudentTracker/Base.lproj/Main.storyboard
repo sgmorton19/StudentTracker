@@ -10,7 +10,7 @@
         <!--Main Table View Controller-->
         <scene sceneID="tfl-fO-nJA">
             <objects>
-                <tableViewController id="13I-8w-Zr7" customClass="MainTableViewController" customModule="StudentTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainTableViewController" id="13I-8w-Zr7" customClass="MainTableViewController" customModule="StudentTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8pX-WA-iBe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,6 +398,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textValue" destination="JjI-AI-WE5" id="Vj9-aW-wBj"/>
+                                            <segue destination="3qy-bd-sJd" kind="show" identifier="editNote" id="xrS-eI-sOc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -486,6 +487,70 @@
             </objects>
             <point key="canvasLocation" x="1380" y="655.5"/>
         </scene>
+        <!--Edit Note-->
+        <scene sceneID="xk8-D1-S1o">
+            <objects>
+                <viewController title="Edit Note" id="3qy-bd-sJd" customClass="EditNoteVC" customModule="StudentTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zmx-Qh-vug"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hxn-Qj-1Tc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HJo-bu-xbN">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sample Text" translatesAutoresizingMaskIntoConstraints="NO" id="aSL-2O-AWw">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aSL-2O-AWw" firstAttribute="top" secondItem="zmx-Qh-vug" secondAttribute="bottom" id="7Uk-UT-SSG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aSL-2O-AWw" secondAttribute="trailing" id="G40-95-paZ"/>
+                            <constraint firstItem="aSL-2O-AWw" firstAttribute="leading" secondItem="HJo-bu-xbN" secondAttribute="leadingMargin" id="oCq-f1-6Zo"/>
+                            <constraint firstItem="Hxn-Qj-1Tc" firstAttribute="top" secondItem="aSL-2O-AWw" secondAttribute="bottom" id="rVi-cu-H95"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="aSL-2O-AWw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7Uk-UT-SSG"/>
+                                <exclude reference="G40-95-paZ"/>
+                                <exclude reference="oCq-f1-6Zo"/>
+                                <exclude reference="rVi-cu-H95"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="aSL-2O-AWw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7Uk-UT-SSG"/>
+                                <include reference="G40-95-paZ"/>
+                                <include reference="oCq-f1-6Zo"/>
+                                <include reference="rVi-cu-H95"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="bDy-Mb-hHs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gt8-JJ-l00">
+                            <connections>
+                                <action selector="saveTapped:" destination="3qy-bd-sJd" id="eq1-98-54b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="rVi-cu-H95" id="QPF-MK-fMk"/>
+                        <outlet property="noteTextView" destination="aSL-2O-AWw" id="eWB-9c-dDd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tf8-sk-bEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056.5" y="649.5"/>
+        </scene>
         <!--Side Menu TableVC-->
         <scene sceneID="iq0-vN-mkX">
             <objects>
@@ -569,6 +634,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tH7-WI-wwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1207.5" y="357"/>
+        </scene>
+        <!--Student Type-->
+        <scene sceneID="IOK-0g-hPE">
+            <objects>
+                <tableViewController storyboardIdentifier="StudentTypeTVC" title="Student Type" id="3mC-k0-vJi" customClass="StudentTypeTVC" customModule="StudentTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NFj-x4-EWX">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="typeCell" id="ryX-L5-le3">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ryX-L5-le3" id="fVz-uY-rLM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3mC-k0-vJi" id="WnQ-ZL-bbr"/>
+                            <outlet property="delegate" destination="3mC-k0-vJi" id="6cG-ie-BYu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Student Types" id="RyZ-Qw-jKd">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ExL-Dn-DUP">
+                            <connections>
+                                <action selector="menuTapped:" destination="3mC-k0-vJi" id="cBH-4s-rOF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5cW-MN-raS"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCD-yf-pei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343.5" y="-306"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="HLa-Aa-LX3">

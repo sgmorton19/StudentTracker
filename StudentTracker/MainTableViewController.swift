@@ -12,7 +12,6 @@ import Foundation
 
 class MainTableViewController: UITableViewController {
     
-    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var studentNames:[Student]!
 
     @IBAction func MenuTapped(sender: AnyObject) {
@@ -92,7 +91,7 @@ class MainTableViewController: UITableViewController {
         
         
         do {
-            let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [Student]
+            let fetchResults = try Util.moc.executeFetchRequest(fetchRequest) as? [Student]
             studentNames = fetchResults
         } catch {
             print("Uh Oh")
@@ -152,7 +151,7 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            moc.deleteObject(studentNames[indexPath.row])
+            Util.moc.deleteObject(studentNames[indexPath.row])
             studentNames.removeAtIndex(indexPath.row)
             Util.save()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -244,8 +243,7 @@ class MainTableViewController: UITableViewController {
 
             */
 
-        }
-        if segue.identifier == "newStudent" {
+        } else if segue.identifier == "newStudent" {
             let view = segue.destinationViewController as! AddStudentController
             
             view.parentView = self

@@ -111,9 +111,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if tableView == notesTable{
-            
-        }else{
+        if tableView == mileStoneTable{
             if indexPath.section == 0{
                 swap(false, index: indexPath.row)
             }else{
@@ -166,13 +164,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         notesTable.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        notesTable.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editNote" {
+            let view = segue.destinationViewController as! EditNoteVC
+            
+            let index = notesTable.indexPathForSelectedRow!.row
+            
+            view.text = notes[index].note
+            view.index = index
+            view.parentView = self
+        }
+    }
 
 
 }

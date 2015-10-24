@@ -25,17 +25,7 @@ class AddStudentController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fetchRequest = NSFetchRequest(entityName: "StudentType")
-        let sortDescriptor = NSSortDescriptor(key: "typeName", ascending: true)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do {
-            let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [StudentType]
-            studentTypes = fetchResults
-        } catch {
-            print("Uh Oh")
-        }
+        studentTypes = Util.getAllStudentTypes()!
         
         typeLabel.text = studentTypes[0].typeName
         currentType = 0

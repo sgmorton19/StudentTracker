@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(
@@ -28,12 +29,30 @@ struct Util {
     UIColorFromRGB(0xFF66B2),
     ]
     
+    static let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     static func save() {
-        let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         do {
             try moc.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
+    }
+    
+    static func getAllStudentTypes() -> [StudentType]? {
+        let fetchRequest = NSFetchRequest(entityName: "StudentType")
+        let sortDescriptor = NSSortDescriptor(key: "typeName", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let fetchResults = try moc.executeFetchRequest(fetchRequest) as! [StudentType]
+            let studentTypes = fetchResults
+            return studentTypes
+        } catch {
+            print("Uh Oh")
+        }
+        
+        return nil
     }
 }

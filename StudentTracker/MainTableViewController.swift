@@ -19,6 +19,11 @@ class MainTableViewController: UITableViewController {
         toggleSideMenuView()
     }
     
+    /*
+
+//
+//OUT OF DATE
+//
     @IBAction func addNewStudent(sender: AnyObject) {
         let titlePrompt = UIAlertController(title: "Student Name",
             message: nil,
@@ -58,14 +63,8 @@ class MainTableViewController: UITableViewController {
         studentNames.append(Student.createInManagedObjectContext(moc, fName: firstname, lName: lastname))
         sortReload()
     }
-    
-    func save() {
-        do {
-            try self.moc.save()
-        } catch {
-            fatalError("Failure to save context: \(error)")
-        }
-    }
+
+*/
     
     
     
@@ -155,7 +154,7 @@ class MainTableViewController: UITableViewController {
             // Delete the row from the data source
             moc.deleteObject(studentNames[indexPath.row])
             studentNames.removeAtIndex(indexPath.row)
-            save()
+            Util.save()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }   
     }
@@ -209,7 +208,7 @@ class MainTableViewController: UITableViewController {
             view.notes = x
             
             //
-            //Old, Bad way to do it
+            //Old, bad way to do it
             //
             
             let fetchRequest = NSFetchRequest(entityName: "MileStone")
@@ -245,6 +244,11 @@ class MainTableViewController: UITableViewController {
 
             */
 
+        }
+        if segue.identifier == "newStudent" {
+            let view = segue.destinationViewController as! AddStudentController
+            
+            view.parentView = self
         }
         
         // Get the new view controller using segue.destinationViewController.

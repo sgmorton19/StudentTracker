@@ -18,8 +18,8 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     )
 }
 
-struct Colors {
-    static let choose = [
+struct Util {
+    static let Colors = [
     UIColorFromRGB(0xFFFFFF),
     UIColorFromRGB(0xFFB266),
     UIColorFromRGB(0xB2FF66),
@@ -27,4 +27,13 @@ struct Colors {
     UIColorFromRGB(0xB266FF),
     UIColorFromRGB(0xFF66B2),
     ]
+    
+    static func save() {
+        let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        do {
+            try moc.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
 }

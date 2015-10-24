@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             handler: { (action) -> Void in
                 if let textField = titleTextField {
                     self.notes.insert(Note.createInManagedObjectContext(self.moc, note: textField.text!, student: self.student), atIndex: 0)
-                    self.save()
+                    Util.save()
                     self.notesTable.reloadData()
                 }
         }))
@@ -101,10 +101,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let retval = tableView.dequeueReusableCellWithIdentifier("mileStoneCell")!
             if indexPath.section == 0 {
                 retval.textLabel?.text = incomplete[indexPath.row].name
-                retval.backgroundColor = Colors.choose[incomplete[indexPath.row].category.integerValue]
+                retval.backgroundColor = Util.Colors[incomplete[indexPath.row].category.integerValue]
             }else{
                 retval.textLabel?.text = completed[indexPath.row].name
-                retval.backgroundColor = Colors.choose[completed[indexPath.row].category.integerValue]
+                retval.backgroundColor = Util.Colors[completed[indexPath.row].category.integerValue]
             }
             return retval
         }
@@ -137,7 +137,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             student.swapComplete(temp)
             completed.sortInPlace( { $0.orderIndex.compare($1.orderIndex) == NSComparisonResult.OrderedAscending } )
         }
-        self.save()
+        Util.save()
         
     }
     
@@ -154,7 +154,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             moc.deleteObject(notes[indexPath.row])
             notes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            save()
+            Util.save()
         }   //else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             //}
@@ -172,13 +172,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func save() {
-        do {
-            try self.moc.save()
-        } catch {
-            fatalError("Failure to save context: \(error)")
-        }
-    }
+    
 
 
 }

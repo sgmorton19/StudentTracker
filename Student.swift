@@ -20,6 +20,8 @@ class Student: NSManagedObject {
         newItem.mileStonesComplete = NSSet()
         
         let fetchRequest = NSFetchRequest(entityName: "MileStone")
+        let predicate = NSPredicate(format: "studentType.typeName == %@", type.typeName)
+        fetchRequest.predicate = predicate
         do {
             let fetchResults = try moc.executeFetchRequest(fetchRequest) as! [MileStone]
             newItem.mileStonesIncomplete = Set(fetchResults)

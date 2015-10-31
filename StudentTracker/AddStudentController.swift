@@ -11,8 +11,6 @@ import CoreData
 
 class AddStudentController: UIViewController {
     
-    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
@@ -82,7 +80,7 @@ class AddStudentController: UIViewController {
     }
     
     func addStudentType(name:String){
-        self.studentTypes.append(StudentType.createInManagedObjectContext(self.moc, name: name))
+        self.studentTypes.append(StudentType.createInManagedObjectContext(Util.moc, name: name))
         let val = self.studentTypes.count - 1
         typeLabel.text = studentTypes[val].typeName
         currentType = val
@@ -111,7 +109,7 @@ class AddStudentController: UIViewController {
             lastname = fullNameArr[0]
         }
         
-        parentView.studentNames.append(Student.createInManagedObjectContext(moc, fName: firstname, lName: lastname, type: studentTypes[currentType]))
+        parentView.studentNames.append(Student.createInManagedObjectContext(Util.moc, fName: firstname, lName: lastname, type: studentTypes[currentType]))
         Util.save()
     }
 }

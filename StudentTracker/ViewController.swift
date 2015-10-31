@@ -18,8 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var completed:[MileStone]!
     var incomplete:[MileStone]!
     
-    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
     @IBAction func addNoteButton(sender: AnyObject) {
         
         let titlePrompt = UIAlertController(title: "New Note",
@@ -37,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             style: .Default,
             handler: { (action) -> Void in
                 if let textField = titleTextField {
-                    self.notes.insert(Note.createInManagedObjectContext(self.moc, note: textField.text!, student: self.student), atIndex: 0)
+                    self.notes.insert(Note.createInManagedObjectContext(Util.moc, note: textField.text!, student: self.student), atIndex: 0)
                     Util.save()
                     self.notesTable.reloadData()
                 }
@@ -149,7 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            moc.deleteObject(notes[indexPath.row])
+            Util.moc.deleteObject(notes[indexPath.row])
             notes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             Util.save()

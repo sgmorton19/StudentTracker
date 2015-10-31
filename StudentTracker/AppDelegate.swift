@@ -33,11 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if mileStoneNum.count < 1 {
                 let type = StudentType.createInManagedObjectContext(moc, name: "Private Pilot")
                 
-                let mileStones =    [("Test 1", 0, 0, type),
-                                    ("Test 2", 0, 1, type),
-                                    ("Test 3", 1, 2, type),
-                                    ("Test 4", 2, 3, type),
-                                    ("Test 5", 2, 4, type)]
+                let mileStones = Util.createDefaultMileStones(type)
                 
                 for (name, color, order, sType) in mileStones {
                     MileStone.createInManagedObjectContext(moc, type: sType, name: name, category: color, orderIndex: order)

@@ -55,4 +55,12 @@ struct Util {
         
         return nil
     }
+    
+    static func createDefaultMileStones(type: StudentType) -> [(String, Int, Int, StudentType)]{
+        return [("Test 1", 0, 0, type),
+            ("Test 2", 0, 1, type),
+            ("Test 3", 1, 2, type),
+            ("Test 4", 2, 3, type),
+            ("Test 5", 2, 4, type)]
+    }
 }

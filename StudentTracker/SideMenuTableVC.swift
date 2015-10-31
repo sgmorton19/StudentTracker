@@ -22,15 +22,14 @@ class SideMenuTableVC: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var destinationVC:UITableViewController!
         
         if indexPath.row == 1 {
-            destinationVC = storyboard.instantiateViewControllerWithIdentifier("StudentTypeTVC") as! StudentTypeTVC
+            sideMenuController()?.setContentViewController(storyboard.instantiateViewControllerWithIdentifier("StudentTypeTVC") as! StudentTypeTVC)
+        } else if indexPath.row == 0 {
+            sideMenuController()?.setContentViewController(storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController)
         } else {
-            destinationVC = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
+            sideMenuController()?.setContentViewController(storyboard.instantiateViewControllerWithIdentifier("SettingsVC") as! SettingsVC)
         }
-        
-        sideMenuController()?.setContentViewController(destinationVC)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class StudentTypeTVC: UITableViewController {
     
@@ -14,6 +15,37 @@ class StudentTypeTVC: UITableViewController {
     
     @IBAction func menuTapped(sender: AnyObject) {
         toggleSideMenuView()
+    }
+    
+    @IBAction func addTypeTapped(sender: AnyObject) {
+        let titlePrompt = UIAlertController(title: "Student Type",
+            message: nil,
+            preferredStyle: .Alert)
+        
+        var titleTextField: UITextField?
+        titlePrompt.addTextFieldWithConfigurationHandler {
+            (textField) -> Void in
+            titleTextField = textField
+            textField.placeholder = "Student Type Description"
+        }
+        
+        titlePrompt.addAction(UIAlertAction(title: "Ok",
+            style: .Default,
+            handler: { (action) -> Void in
+                if let textField = titleTextField {
+                    self.addStudentType(textField.text!)
+                }
+        }))
+        
+        self.presentViewController(titlePrompt,
+            animated: true,
+            completion: nil)
+    }
+    
+    func addStudentType(name:String){
+        studentTypes.append(StudentType.createInManagedObjectContext(Util.moc, name: name))
+        Util.save()
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -61,26 +93,23 @@ class StudentTypeTVC: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            
-            
             
             let titlePrompt = UIAlertController(title: "Warning!",
-                message: "Deleting Student Type will delete all Students and Mile Stones that are of that type",
+                message: "Deleting Student Type will delete all Students and Mile Stones that are of that type.",
                 preferredStyle: .Alert)
             
             titlePrompt.addAction(UIAlertAction(title: "Cancel",
                 style: .Default,
             handler: { (action) -> Void in
-                //nothing happens
+                tableView.editing = false
             }))
             
             titlePrompt.addAction(UIAlertAction(title: "Ok",
                 style: .Default,
                 handler: { (action) -> Void in
+                    Util.moc.deleteObject(self.studentTypes[indexPath.row])
+                    Util.save()
                     self.studentTypes.removeAtIndex(indexPath.row)
-                    //Util.moc.deleteObject(self.studentTypes[indexPath.row])
-                    //Util.save()
                     self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }))
             
@@ -106,14 +135,45 @@ class StudentTypeTVC: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toMileStones" {
+            let view = segue.destinationViewController as! MileStoneTVC
+            
+            let index = tableView.indexPathForSelectedRow!.row
+            
+            view.studentType = studentTypes[index]
+            
+            let fetchRequest = NSFetchRequest(entityName: "MileStone")
+            let predicate = NSPredicate(format: "studentType.typeName == %@", studentTypes[index].typeName)
+            let sortDescriptor = NSSortDescriptor(key: "orderIndex", ascending: true)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            fetchRequest.predicate = predicate
+            do {
+                let fetchResults = try Util.moc.executeFetchRequest(fetchRequest) as! [MileStone]
+                view.mileStones = fetchResults
+                
+                var i = 0
+                var temp = 0
+                var catArray = [Int]()
+                for val in fetchResults {
+                    if val.category.integerValue != i {
+                        catArray.append(temp)
+                        temp = 1
+                        i++
+                    }else{
+                        temp++
+                    }
+                }
+                catArray.append(temp)
+                view.catArr = catArray
+                view.categories = i + 1
+                
+            }catch{
+                print("Uh Oh")
+            }
+        }
     }
-    */
+    
 
 }

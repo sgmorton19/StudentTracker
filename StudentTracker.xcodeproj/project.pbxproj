@@ -31,6 +31,9 @@
 		84D02D491BDABB2700E5D98F /* AddStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D481BDABB2700E5D98F /* AddStudentController.swift */; };
 		84D02D4B1BDB0CD500E5D98F /* EditNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */; };
 		84D02D4D1BDB165D00E5D98F /* StudentTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */; };
+		84D992F51BDC085B00D13E56 /* MileStoneTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D992F41BDC085B00D13E56 /* MileStoneTVC.swift */; };
+		84D992F71BDD6CC200D13E56 /* NewMileStoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D992F61BDD6CC200D13E56 /* NewMileStoneVC.swift */; };
+		84D992F91BE41C9500D13E56 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D992F81BE41C9500D13E56 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		84D02D481BDABB2700E5D98F /* AddStudentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentController.swift; sourceTree = "<group>"; };
 		84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteVC.swift; sourceTree = "<group>"; };
 		84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTypeTVC.swift; sourceTree = "<group>"; };
+		84D992F41BDC085B00D13E56 /* MileStoneTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileStoneTVC.swift; sourceTree = "<group>"; };
+		84D992F61BDD6CC200D13E56 /* NewMileStoneVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMileStoneVC.swift; sourceTree = "<group>"; };
+		84D992F81BE41C9500D13E56 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,22 +100,18 @@
 		848642BF1B50622200451A3C /* StudentTracker */ = {
 			isa = PBXGroup;
 			children = (
-				848642E51B5083C200451A3C /* CoreData */,
 				848642C01B50622200451A3C /* AppDelegate.swift */,
-				848642C21B50622200451A3C /* ViewController.swift */,
 				848642C41B50622200451A3C /* Main.storyboard */,
-				84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */,
-				84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */,
-				84D02D481BDABB2700E5D98F /* AddStudentController.swift */,
-				84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */,
-				84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */,
-				848642D71B507ADB00451A3C /* MainTableViewController.swift */,
-				848642D51B5070F100451A3C /* NotesTableViewCell.swift */,
+				848642C71B50622200451A3C /* StudentTracker.xcdatamodeld */,
+				848642E51B5083C200451A3C /* CoreData */,
+				84D992F11BDBC89B00D13E56 /* Menu Item 1 Path */,
+				84D992F21BDC081A00D13E56 /* Menu Item 2 Path */,
+				84D992F31BDC083200D13E56 /* Side Menu */,
 				84D02D0F1BD2EAC700E5D98F /* Util.swift */,
+				84D992F81BE41C9500D13E56 /* SettingsVC.swift */,
 				848642CA1B50622200451A3C /* Assets.xcassets */,
 				848642CC1B50622200451A3C /* LaunchScreen.storyboard */,
 				848642CF1B50622200451A3C /* Info.plist */,
-				848642C71B50622200451A3C /* StudentTracker.xcdatamodeld */,
 			);
 			path = StudentTracker;
 			sourceTree = "<group>";
@@ -127,6 +129,37 @@
 				84D02D0C1BCD5C7C00E5D98F /* Note.swift */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		84D992F11BDBC89B00D13E56 /* Menu Item 1 Path */ = {
+			isa = PBXGroup;
+			children = (
+				848642D71B507ADB00451A3C /* MainTableViewController.swift */,
+				848642C21B50622200451A3C /* ViewController.swift */,
+				84D02D481BDABB2700E5D98F /* AddStudentController.swift */,
+				84D02D4A1BDB0CD500E5D98F /* EditNoteVC.swift */,
+				848642D51B5070F100451A3C /* NotesTableViewCell.swift */,
+			);
+			name = "Menu Item 1 Path";
+			sourceTree = "<group>";
+		};
+		84D992F21BDC081A00D13E56 /* Menu Item 2 Path */ = {
+			isa = PBXGroup;
+			children = (
+				84D02D4C1BDB165D00E5D98F /* StudentTypeTVC.swift */,
+				84D992F41BDC085B00D13E56 /* MileStoneTVC.swift */,
+				84D992F61BDD6CC200D13E56 /* NewMileStoneVC.swift */,
+			);
+			name = "Menu Item 2 Path";
+			sourceTree = "<group>";
+		};
+		84D992F31BDC083200D13E56 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				84D02D361BDA8F4300E5D98F /* SideMenuNavigation Controller.swift */,
+				84D02D381BDA91F600E5D98F /* SideMenuTableVC.swift */,
+			);
+			name = "Side Menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,11 +232,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D992F51BDC085B00D13E56 /* MileStoneTVC.swift in Sources */,
 				84D02D3D1BDAAEF700E5D98F /* StudentType.swift in Sources */,
 				84D02D421BDAB16600E5D98F /* MileStone+CoreDataProperties.swift in Sources */,
 				84D02D431BDAB16600E5D98F /* MileStone.swift in Sources */,
 				84D02D101BD2EAC700E5D98F /* Util.swift in Sources */,
+				84D992F91BE41C9500D13E56 /* SettingsVC.swift in Sources */,
 				84D02D341BDA8E2300E5D98F /* ENSideMenu.swift in Sources */,
+				84D992F71BDD6CC200D13E56 /* NewMileStoneVC.swift in Sources */,
 				848642C31B50622200451A3C /* ViewController.swift in Sources */,
 				84D02D491BDABB2700E5D98F /* AddStudentController.swift in Sources */,
 				84D02D3C1BDAAEF700E5D98F /* StudentType+CoreDataProperties.swift in Sources */,

@@ -49,6 +49,10 @@ class SettingsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func saveCategories(segue:UIStoryboardSegue) {
+            Util.save()
+    }
+    
 
     /*
     // MARK: - Navigation

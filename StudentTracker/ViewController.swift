@@ -99,10 +99,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let retval = tableView.dequeueReusableCellWithIdentifier("mileStoneCell")!
             if indexPath.section == 0 {
                 retval.textLabel?.text = incomplete[indexPath.row].name
-                retval.backgroundColor = Util.Colors[incomplete[indexPath.row].category.integerValue]
+                retval.backgroundColor = Util.getColor(incomplete[indexPath.row].category.integerValue)
             }else{
                 retval.textLabel?.text = completed[indexPath.row].name
-                retval.backgroundColor = Util.Colors[completed[indexPath.row].category.integerValue]
+                retval.backgroundColor = Util.getColor(completed[indexPath.row].category.integerValue)
             }
             return retval
         }

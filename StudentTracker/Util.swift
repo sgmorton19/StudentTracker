@@ -10,24 +10,43 @@ import Foundation
 import UIKit
 import CoreData
 
-func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
-}
 
 struct Util {
-    static let Colors = [
-    UIColorFromRGB(0xFFFFFF),
-    UIColorFromRGB(0xFFB266),
-    UIColorFromRGB(0xB2FF66),
-    UIColorFromRGB(0x66FFFF),
-    UIColorFromRGB(0xB266FF),
-    UIColorFromRGB(0xFF66B2),
-    ]
+    
+    static func UIColorFromRGB(rValue: Float, gValue: Float, bValue: Float) -> UIColor {
+        return UIColor(
+            red: CGFloat(rValue) / 255.0,
+            green: CGFloat(gValue) / 255.0,
+            blue: CGFloat(bValue) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+    static func getColor(val: Int) -> UIColor{
+        let colors = getAllColors()
+        if val < colors.count {
+            return UIColorFromRGB(colors[val].red.floatValue, gValue: colors[val].green.floatValue, bValue: colors[val].blue.floatValue)
+        }else{
+            return UIColorFromRGB(255, gValue: 255, bValue: 255)
+        }
+    }
+    
+    static func getAllColors() -> [Color]{
+        let fetchRequest = NSFetchRequest(entityName: "Color")
+        
+        let sortDescriptor = NSSortDescriptor(key: "orderIndex", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let fetchResults = try moc.executeFetchRequest(fetchRequest) as! [Color]
+            let colors = fetchResults
+            return colors
+        } catch {
+            print("Uh Oh")
+        }
+        return [Color]()
+    }
     
     static let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     

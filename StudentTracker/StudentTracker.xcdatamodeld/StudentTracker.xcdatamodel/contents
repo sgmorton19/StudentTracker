@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.20" systemVersion="14E46" minimumToolsVersion="Automatic">
+    <entity name="Color" representedClassName=".Color" syncable="YES">
+        <attribute name="alpha" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blue" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="green" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="orderIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="red" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="MileStone" representedClassName=".MileStone" syncable="YES">
         <attribute name="category" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -28,8 +35,9 @@
     </entity>
     <elements>
         <element name="MileStone" positionX="-81" positionY="-306" width="128" height="133"/>
-        <element name="Note" positionX="198" positionY="-27" width="128" height="88"/>
+        <element name="Note" positionX="-315" positionY="-189" width="128" height="88"/>
         <element name="Student" positionX="-108" positionY="-46" width="128" height="133"/>
         <element name="StudentType" positionX="178" positionY="-243" width="128" height="88"/>
+        <element name="Color" positionX="169" positionY="-79" width="128" height="118"/>
     </elements>
 </model>

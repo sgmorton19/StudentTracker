@@ -24,7 +24,7 @@ class NewMileStoneVC: UIViewController {
         catSlider.minimumValue = 0
         catSlider.maximumValue = Float(parentView.catArr.count)
         catSlider.value = 0
-        catLabel.backgroundColor = Util.Colors[0]
+        catLabel.backgroundColor = Util.getColor(0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +55,7 @@ class NewMileStoneVC: UIViewController {
     @IBAction func sliderMoved(sender: UISlider) {
         sender.setValue(Float(lroundf(catSlider.value)), animated: true)
         catLabel.text = "\(Int(catSlider.value) + 1)"
-        catLabel.backgroundColor = Util.Colors[Int(catSlider.value)]
+        catLabel.backgroundColor = Util.getColor(Int(catSlider.value))
     }
     /*
     // MARK: - Navigation

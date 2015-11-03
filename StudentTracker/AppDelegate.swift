@@ -16,27 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mileStoneNum:[MileStone]!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let defaults = NSUserDefaults.standardUserDefaults()
         if let _ = defaults.objectForKey("sortByFirstName")
         {
         }else{
-            let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(true, forKey: "sortByFirstName")
         }
         
         let fetchRequest = NSFetchRequest(entityName: "MileStone")
         
         do {
-            let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [MileStone]
+            let fetchResults = try Util.moc.executeFetchRequest(fetchRequest) as? [MileStone]
             mileStoneNum = fetchResults
             if mileStoneNum.count < 1 {
-                let type = StudentType.createInManagedObjectContext(moc, name: "Private Pilot")
+                let type = StudentType.createInManagedObjectContext(Util.moc, name: "Private Pilot")
                 
                 let mileStones = Util.createDefaultMileStones(type)
                 
                 for (name, color, order, sType) in mileStones {
-                    MileStone.createInManagedObjectContext(moc, type: sType, name: name, category: color, orderIndex: order)
+                    MileStone.createInManagedObjectContext(Util.moc, type: sType, name: name, category: color, orderIndex: order)
                 }
             }
         } catch {

@@ -25,6 +25,7 @@ class NewMileStoneVC: UIViewController {
         catSlider.maximumValue = Float(parentView.catArr.count)
         catSlider.value = 0
         catLabel.backgroundColor = Util.getColor(0)
+        mileStoneTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {

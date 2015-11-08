@@ -11,17 +11,54 @@ import CoreData
 
 class AddStudentController: UIViewController {
     
+    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var swipeView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet var swiped: UISwipeGestureRecognizer!
     
     var studentTypes:[StudentType]!
     var currentType:Int!
     var parentView:MainTableViewController!
     
+    
+    func swiped(sender: UISwipeGestureRecognizer!){
+        if sender.direction == UISwipeGestureRecognizerDirection.Left{
+            if currentType != studentTypes.count - 1 {
+                currentType = currentType + 1
+                typeLabel.slideInFromRight(Util.slideAnimationSpeed, completionDelegate: nil)
+                typeLabel.text = studentTypes[currentType].typeName
+                if currentType == studentTypes.count - 1 {
+                    nextButton.enabled = false
+                }
+            }
+            prevButton.enabled = true
+            
+        }else if sender.direction == UISwipeGestureRecognizerDirection.Right{
+            if currentType != 0 {
+                currentType = currentType - 1
+                typeLabel.slideInFromLeft(Util.slideAnimationSpeed, completionDelegate: nil)
+                typeLabel.text = studentTypes[currentType].typeName
+                if currentType == 0 {
+                    prevButton.enabled = false
+                }
+            }
+            nextButton.enabled = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let swipedLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipedLeft.direction = UISwipeGestureRecognizerDirection.Left
+        let swipedRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipedRight.direction = UISwipeGestureRecognizerDirection.Right
+        swipeView.addGestureRecognizer(swipedLeft)
+        swipeView.addGestureRecognizer(swipedRight)
+        swipeView.userInteractionEnabled = true
         
         studentTypes = Util.getAllStudentTypes()!
         
@@ -40,6 +77,8 @@ class AddStudentController: UIViewController {
             nextButton.enabled = false
         }
         prevButton.enabled = true
+        
+        typeLabel.slideInFromRight(Util.slideAnimationSpeed, completionDelegate: nil)
         typeLabel.text = studentTypes[currentType].typeName
         
     }
@@ -50,6 +89,8 @@ class AddStudentController: UIViewController {
             prevButton.enabled = false
         }
         nextButton.enabled = true
+        
+        typeLabel.slideInFromLeft(Util.slideAnimationSpeed, completionDelegate: nil)
         typeLabel.text = studentTypes[currentType].typeName
         
     }
@@ -97,7 +138,7 @@ class AddStudentController: UIViewController {
     }
     
     func addStudent(name: String){
-        let fullNameArr = split(name.characters){$0 == " "}.map{String($0)}
+        let fullNameArr = name.characters.split{$0 == " "}.map{String($0)}
         var firstname = name
         var lastname = name
         

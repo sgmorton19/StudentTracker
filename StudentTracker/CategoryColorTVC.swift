@@ -58,6 +58,7 @@ class CategoryColorTVC: UITableViewController {
         cell.rSlider.value = colors[indexPath.row].red.floatValue
         cell.gSlider.value = colors[indexPath.row].green.floatValue
         cell.bSlider.value = colors[indexPath.row].blue.floatValue
+        cell.catLabel.text = "Category \(indexPath.row + 1)"
         cell.index = indexPath.row
         cell.vc = self
         cell.sliderChanged()

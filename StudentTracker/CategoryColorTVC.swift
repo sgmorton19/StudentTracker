@@ -58,13 +58,11 @@ class CategoryColorTVC: UITableViewController {
         cell.rSlider.value = colors[indexPath.row].red.floatValue
         cell.gSlider.value = colors[indexPath.row].green.floatValue
         cell.bSlider.value = colors[indexPath.row].blue.floatValue
+        cell.aSlider.value = colors[indexPath.row].alpha.floatValue
         cell.catLabel.text = "Category \(indexPath.row + 1)"
         cell.index = indexPath.row
         cell.vc = self
         cell.sliderChanged()
-        
-        
-        
         
 
         return cell
@@ -79,17 +77,17 @@ class CategoryColorTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            Util.moc.deleteObject(colors.removeAtIndex(indexPath.row))
+            tableView.reloadData()
+            Util.save()
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

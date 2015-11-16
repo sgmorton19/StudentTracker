@@ -20,9 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = defaults.objectForKey("sortByFirstName")
         {
         }else{
+            //Set nsDefault for sort type
             defaults.setBool(true, forKey: "sortByFirstName")
+            
+            //Create Default "Private Pilot" Student Type
+            let type = StudentType.createInManagedObjectContext(Util.moc, name: "Private Pilot")
+            let mileStones = Util.createDefaultMileStones(type)
+            for (name, color, order, sType) in mileStones {
+                MileStone.createInManagedObjectContext(Util.moc, type: sType, name: name, category: color, orderIndex: order)
+            }
+            
+            //Create Default Colors
+            let colors = Util.createDefaultColors()
+            for (r, g, b, a) in colors {
+                Color.createInManagedObjectContext(Util.moc, r: r, g: g, b: b, a: a)
+                Util.save()
+            }
+            
         }
         
+        /*
+        //Old Code
         let fetchRequest = NSFetchRequest(entityName: "MileStone")
         
         do {
@@ -40,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Uh Oh")
         }
+        */
         
         
         

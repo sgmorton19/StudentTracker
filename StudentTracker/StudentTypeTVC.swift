@@ -26,6 +26,7 @@ class StudentTypeTVC: UITableViewController {
         titlePrompt.addTextFieldWithConfigurationHandler {
             (textField) -> Void in
             titleTextField = textField
+            textField.autocapitalizationType = .Words
             textField.placeholder = "Student Type Description"
         }
         
@@ -173,6 +174,13 @@ class StudentTypeTVC: UITableViewController {
                 print("Uh Oh")
             }
         }
+    }
+    
+    
+    @IBAction func saveMileStone(segue:UIStoryboardSegue) {
+        print("hi")
+        let vc = segue.sourceViewController as! MileStoneTVC
+        vc.saveCatIndex()
     }
     
 

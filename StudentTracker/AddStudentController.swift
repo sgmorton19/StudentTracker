@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddStudentController: UIViewController {
+class AddStudentController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var swipeView: UIView!
@@ -49,6 +49,11 @@ class AddStudentController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        doSave()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +64,7 @@ class AddStudentController: UIViewController {
         swipeView.addGestureRecognizer(swipedLeft)
         swipeView.addGestureRecognizer(swipedRight)
         swipeView.userInteractionEnabled = true
+        nameTextField.autocapitalizationType = .Words
         
         studentTypes = Util.getAllStudentTypes()!
         
@@ -68,6 +74,7 @@ class AddStudentController: UIViewController {
         if currentType == studentTypes.count - 1 {
             nextButton.enabled = false
         }
+        nameTextField.becomeFirstResponder()
         
     }
     
@@ -131,6 +138,10 @@ class AddStudentController: UIViewController {
     }
     
     @IBAction func saveTapped(sender: AnyObject) {
+        doSave()
+    }
+    
+    func doSave(){
         if nameTextField.text! != "" {
             addStudent(nameTextField.text!)
             navigationController?.popViewControllerAnimated(true)

@@ -15,15 +15,9 @@ class MileStoneTVC: UITableViewController {
     var catArr:[Int]!
     var studentType:StudentType!
     
-    @IBAction func addMStapped(sender: AnyObject) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let longpress = UILongPressGestureRecognizer(target: self, action: "longPressGestureRecognized:")
-        
         tableView.addGestureRecognizer(longpress)
     }
 
@@ -44,14 +38,23 @@ class MileStoneTVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("mileStoneCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = mileStones[getArrPos(indexPath)].name
-
+        cell.selectionStyle = .None
+        cell.backgroundColor = Util.getColor(indexPath.section)
+        for view in cell.contentView.subviews
+        {
+            view.backgroundColor = UIColor.clearColor();
+        }
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.contentView.backgroundColor = Util.getColor(section)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Category \(section + 1)"
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -61,17 +64,17 @@ class MileStoneTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
+            Util.moc.deleteObject(mileStones.removeAtIndex(getArrPos(indexPath)))
+            catArr[indexPath.section]--
+            Util.save()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
 
     
     // Override to support rearranging the table view.
@@ -140,6 +143,12 @@ class MileStoneTVC: UITableViewController {
             
             view.parentView = self
             view.studentType = studentType
+        }
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        if (!(parent?.isEqual(self.parentViewController) ?? false)) {
+            saveCatIndex()
         }
     }
 

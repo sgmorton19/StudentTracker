@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewMileStoneVC: UIViewController {
+class NewMileStoneVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var catLabel: UILabel!
     @IBOutlet weak var catSlider: UISlider!
@@ -17,6 +17,10 @@ class NewMileStoneVC: UIViewController {
     var studentType:StudentType!
     var parentView:MileStoneTVC!
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        doSave()
+        return true;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,7 @@ class NewMileStoneVC: UIViewController {
         catSlider.maximumValue = Float(parentView.catArr.count)
         catSlider.value = 0
         catLabel.backgroundColor = Util.getColor(0)
+        mileStoneTextField.autocapitalizationType = .Words
         mileStoneTextField.becomeFirstResponder()
     }
 
@@ -34,6 +39,10 @@ class NewMileStoneVC: UIViewController {
     }
     
     @IBAction func saveTapped(sender: AnyObject) {
+        doSave()
+    }
+    
+    func doSave(){
         if mileStoneTextField.text != "" {
             let slideVal = Int(catSlider.value)
             let newMS = MileStone.createInManagedObjectContext(Util.moc, type: studentType, name: mileStoneTextField.text!, category: slideVal, orderIndex: 0)

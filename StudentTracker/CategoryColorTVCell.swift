@@ -9,6 +9,7 @@
 import UIKit
 
 class CategoryColorTVCell: UITableViewCell {
+    @IBOutlet weak var aSlider: UISlider!
 
     @IBOutlet weak var catLabel: UILabel!
     @IBOutlet weak var rSlider: UISlider!
@@ -29,13 +30,18 @@ class CategoryColorTVCell: UITableViewCell {
         vc.colors[index].green = gSlider.value
     }
     
+    @IBAction func aSliderChanged(sender: AnyObject) {
+        sliderChanged()
+        vc.colors[index].alpha = aSlider.value
+    }
+    
     @IBAction func bSliderChanged(sender: AnyObject) {
         sliderChanged()
         vc.colors[index].blue = bSlider.value
     }
     
     func sliderChanged(){
-        let color = Util.UIColorFromRGB(rSlider.value, gValue: gSlider.value, bValue: bSlider.value)
+        let color = Util.UIColorFromRGB(rSlider.value, gValue: gSlider.value, bValue: bSlider.value, aValue: aSlider.value)
         catLabel.backgroundColor = color
     }
     

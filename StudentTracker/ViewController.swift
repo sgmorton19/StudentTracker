@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         titlePrompt.addTextFieldWithConfigurationHandler {
             (textField) -> Void in
             titleTextField = textField
+            textField.autocapitalizationType = .Sentences
             textField.placeholder = "Type Note Here"
         }
         
@@ -86,9 +87,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         if tableView == notesTable {
             let retval = tableView.dequeueReusableCellWithIdentifier("notesCell") as! NotesTableViewCell
@@ -103,6 +101,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }else{
                 retval.textLabel?.text = completed[indexPath.row].name
                 retval.backgroundColor = Util.getColor(completed[indexPath.row].category.integerValue)
+            }
+            for view in retval.contentView.subviews
+            {
+                view.backgroundColor = UIColor.clearColor();
             }
             return retval
         }

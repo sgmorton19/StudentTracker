@@ -22,10 +22,19 @@ struct Util {
         )
     }
     
+    static func UIColorFromRGB(rValue: Float, gValue: Float, bValue: Float, aValue: Float) -> UIColor {
+        return UIColor(
+            red: CGFloat(rValue) / 255.0,
+            green: CGFloat(gValue) / 255.0,
+            blue: CGFloat(bValue) / 255.0,
+            alpha: CGFloat(aValue) / 255.0
+        )
+    }
+    
     static func getColor(val: Int) -> UIColor{
         let colors = getAllColors()
         if val < colors.count {
-            return UIColorFromRGB(colors[val].red.floatValue, gValue: colors[val].green.floatValue, bValue: colors[val].blue.floatValue)
+            return UIColorFromRGB(colors[val].red.floatValue, gValue: colors[val].green.floatValue, bValue: colors[val].blue.floatValue, aValue: colors[val].alpha.floatValue)
         }else{
             return UIColorFromRGB(255, gValue: 255, bValue: 255)
         }
@@ -77,11 +86,58 @@ struct Util {
     }
     
     static func createDefaultMileStones(type: StudentType) -> [(String, Int, Int, StudentType)]{
-        return [("Test 1", 0, 0, type),
-            ("Test 2", 0, 1, type),
-            ("Test 3", 1, 2, type),
-            ("Test 4", 2, 3, type),
-            ("Test 5", 2, 4, type)]
+        return [("Written Exam", 0, 0, type),
+            ("3rd Class Medical", 0, 1, type),
+            ("Driver's Lisence", 0, 2, type),
+            ("Passport or Birth Certificate", 0, 3, type),
+            ("4 Fundamentals", 1, 4, type),
+            ("Rectangular Course", 1, 5, type),
+            ("S Turns", 1, 6, type),
+            ("Turns about a Point", 1, 7, type),
+            ("Power Off Stall Clean", 1, 8, type),
+            ("Power Off Stall Dirty", 1, 9, type),
+            ("Approach to Landing Stall", 1, 10, type),
+            ("Power on Stall Clean", 1, 11, type),
+            ("Departure Stall", 1, 12, type),
+            ("Slow Flight Clean", 1, 13, type),
+            ("Slow Flight Dirty", 1, 14, type),
+            ("Steep Turns", 1, 15, type),
+            ("Go Around", 1, 16, type),
+            ("Emergency Landing", 1, 17, type),
+            ("Slips to a Landing", 1, 18, type),
+            ("First Solo!", 1, 19, type),
+            ("3 Solo's in Pattern", 1, 20, type),
+            ("Solo in Practice Area", 2, 21, type),
+            ("Controlled Airspace", 2, 22, type),
+            ("Controlled Airspace Solo", 2, 23, type),
+            ("Dual XC", 2, 24, type),
+            ("Dual Night XC", 2, 25, type),
+            ("Short Field Landing", 2, 26, type),
+            ("Soft Field Landing", 2, 27, type),
+            ("Simulated Instrument: 4 Fundamentals", 2, 28, type),
+            ("Solo XCs", 3, 29, type),
+            ("Oral Exam Prep", 3, 30, type),
+            ("Simulated Instrument: Unusual Atitudes", 3, 31, type),
+            ("3 Hours Dual XC", 4, 32, type),
+            ("3 Hours Dual Night", 4, 33, type),
+            ("Dual Night XC 100nm", 4, 34, type),
+            ("Dual 10 Night Landings", 4, 35, type),
+            ("3 Hours Simulated Instrument", 4, 36, type),
+            ("10 Hours Solo", 5, 37, type),
+            ("5 Hours Solo XC", 5, 38, type),
+            ("Solo XC 150nm", 5, 39, type),
+            ("3 Solo Controlled Airspace Landings", 5, 40, type),
+            ("Checkride!", 6, 41, type)]
+    }
+    
+    static func createDefaultColors() -> [(Float, Float, Float, Float)] {
+        return [(255, 255, 255, 0),
+                (255, 0, 0, 128),
+                (0, 255, 0, 128),
+                (0, 0, 255, 128),
+                (255, 255, 0, 128),
+                (0, 255, 255, 128),
+                (128, 128, 128, 128)]
     }
 }
 
